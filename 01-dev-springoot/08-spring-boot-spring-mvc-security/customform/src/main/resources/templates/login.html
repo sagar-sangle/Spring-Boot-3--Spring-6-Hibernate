@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .failed{
+        color:red;
+        }
+        .success{
+        color:green;
+        }
+    </style>
+</head>
+<body>
+<center><h1>LOGIN</h1></center>
+<hr>
+<center>
+<form  th:action="@{/authenticateTheUser}" method="POST">
+
+    <p th:if="${param.error}"><i class="failed">!! Login failed Invalid username/password</i></p>
+    <p th:if="${param.logout}"><i class="success">!! you have been logged out</i>></p>
+
+   user name <input type="text" name="username" placeholder="Enter Username " autocomplete="off"/>
+    <br>
+    password <input type="password" name="password" autocomplete="new-password" placeholder="password"/>
+    <br>
+<button type="submit" value="submit">login</button>
+</form>
+</center>
+</body>
+</html>

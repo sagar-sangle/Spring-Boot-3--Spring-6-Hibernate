@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org" xmlns:sec="www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/logout}" method="POST">
+<h2>welcome to home </h2>
+<hr>
+
+<!--    display username and roles-->
+    User : <span sec:authentication="principal.username"></span>
+    <br><br>
+    Role(s) :<span sec:authentication="principal.authorities"></span>
+    <hr>
+
+<!--    add link for /leadsers and this is for managers-->
+    <a th:href="@{/leaders}">Leadership Meeting</a>
+    [only for manager peeps](peeps means people/folk)
+<br>
+    <br>
+    <a th:href="@{/admin}">System secrets</a>
+
+<button type="submit" value="logout">logout</button>
+
+</form>
+</body>
+</html>

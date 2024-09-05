@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.com">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .error
+        {
+        color:red
+        }
+    </style>
+</head>
+<body>
+<form th:action="@{/formhandle}"   th:object="${customer}"  method="post">
+
+    first Name :   <input th:field="*{firstName}">
+<!--     message for firstname if  there is any error present-->
+    <span th:if="${#fields.hasErrors('firstName')}"
+   th:errors="*{firstName}"
+    class="error"></span>
+    <br>
+    <!--  th :errors line displays error message -->
+<!--    class for css style-->
+
+    last Name : <input th:field="*{lastName}">
+    <br>
+    passes : <input th:field="*{freePass}">
+    <span th:if="${#fields.hasErrors('freePass')}"
+    th:errors="*{freePass}"
+    class="error"></span>
+    <br>
+    email : <input th:field="*{email}">
+    <br>
+<input type="submit" value="Send">
+</form>
+
+
+</body>
+</html>
